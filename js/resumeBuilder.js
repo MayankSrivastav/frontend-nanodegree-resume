@@ -7,7 +7,7 @@
 
 var bio = {
     name: 'Mayank Srivastav',
-    role: 'Software Engineer',
+    role: 'Senior Software Engineer',
     contacts: {
         mobile: '+91 000',
         email: 'mayanksri18@yahoo.in',
@@ -105,7 +105,9 @@ var education = {
             }
         }
 
+
         $('#education').append(HTMLonlineClasses);
+        $('#education').append(HTMLschoolStart);
 
         // Iterate over the onlineCourses array &
         // append values one by one
@@ -127,7 +129,7 @@ var work = {
     jobs: [
         {
             employer: 'Infosys',
-            title: 'Software Engineer',
+            title: 'Senior Software Engineer',
             location: 'Bangalore, Karnataka, India',
             dates: '2012 - In progress',
             description: 'I am working on various Web Development technologies. I have build ' +
@@ -194,6 +196,8 @@ function displayAllData() {
     work.display();
     projects.display();
     education.display();
+
+    $('#mapDiv').append(googleMap);
 }
 
 window.addEventListener('load', displayAllData());
