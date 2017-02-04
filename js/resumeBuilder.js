@@ -2,9 +2,7 @@
    dynamically. This file interacts with
    helper.js and index.html
 */
-
 // Object schema for the resume
-
 var bio = {
     name: 'Mayank Srivastav',
     role: 'Senior Software Engineer',
@@ -56,7 +54,7 @@ var bio = {
 
         // Iterate over skills array and append
         // the values one by one
-        this.skills.forEach(function(currentValue){
+        this.skills.forEach(function(currentValue) {
             var value = HTMLskills.replace('%data%', currentValue);
             $('#skills').append(value);
         });
@@ -64,25 +62,21 @@ var bio = {
 };
 
 var education = {
-    schools: [
-        {
-            name: 'Graphic Era University',
-            location: 'Dehradun, India',
-            degree: 'Bachelors in Technology',
-            majors: [
-                'Computer Science & Enigneering'
-            ],
-            dates: '2008 - 2012'
-        }
-    ],
-    onlineCourses: [
-        {
-            title: 'Udacity Front End Nanodegree',
-            school: 'Udacity',
-            dates: '2016 - ',
-            url: 'http://udacity.com'   // TODO: Put exact url if known
-        }
-    ],
+    schools: [{
+        name: 'Graphic Era University',
+        location: 'Dehradun, India',
+        degree: 'Bachelors in Technology',
+        majors: [
+            'Computer Science & Enigneering'
+        ],
+        dates: '2008 - 2012'
+    }],
+    onlineCourses: [{
+        title: 'Udacity Front End Nanodegree',
+        school: 'Udacity',
+        dates: '2016 - ',
+        url: 'http://udacity.com' // TODO: Put exact url if known
+    }],
     display: function() {
         $('#education').append(HTMLschoolStart);
 
@@ -126,17 +120,15 @@ var education = {
 };
 
 var work = {
-    jobs: [
-        {
-            employer: 'Infosys',
-            title: 'Senior Software Engineer',
-            location: 'Bangalore, Karnataka, India',
-            dates: '2012 - In progress',
-            description: 'I am working on various Web Development technologies. I have build ' +
-                         'websites and desktop applications using Microsoft SharePoint Server' +
-                         ' and C#.NET.'
-        }
-    ],
+    jobs: [{
+        employer: 'Infosys',
+        title: 'Senior Software Engineer',
+        location: 'Bangalore, Karnataka, India',
+        dates: '2012 - In progress',
+        description: 'I am working on various Web Development technologies. I have build ' +
+            'websites and desktop applications using Microsoft SharePoint Server' +
+            ' and C#.NET.'
+    }],
     display: function() {
         $('#workExperience').append(HTMLworkStart);
 
@@ -160,14 +152,12 @@ var work = {
 };
 
 var projects = {
-    projects: [
-        {
-            title: 'Portfolio project' ,
-            dates: 'January 2017',
-            description: 'This projects showcases my portfolio including projects I have been working on.',
-            images: 'images/project.png'  // TODO: add image url
-        }
-    ],
+    projects: [{
+        title: 'Portfolio project',
+        dates: 'January 2017',
+        description: 'This projects showcases my portfolio including projects I have been working on.',
+        images: 'images/project.png' // TODO: add image url
+    }],
     display: function() {
         $('#projects').append(HTMLprojectStart);
 
