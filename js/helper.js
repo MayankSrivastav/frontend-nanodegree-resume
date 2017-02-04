@@ -58,10 +58,7 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
-/*
-The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
+// Internationalize name
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
@@ -71,7 +68,7 @@ $(document).ready(function() {
 });
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
+The next few lines about clicks are for the Collecting Click Locations.
 */
 var clickLocations = [];
 
@@ -89,19 +86,9 @@ $(document).click(function(loc) {
   // your code goes here!
 });
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 var map;    // declares a global map variable
 
-
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
+// initializeMap() is called when page is loaded.
 function initializeMap() {
 
   var locations;
@@ -130,17 +117,13 @@ function initializeMap() {
     locations.push(bio.contacts.location);
 
     // iterates through school locations and appends each location to
-    // the locations array. Note that forEach is used for array iteration
-    // as described in the Udacity FEND Style Guide:
-    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    // the locations array.
     education.schools.forEach(function(school){
       locations.push(school.location);
     });
 
     // iterates through work locations and appends each location to
-    // the locations array. Note that forEach is used for array iteration
-    // as described in the Udacity FEND Style Guide:
-    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    // the locations array.
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
@@ -175,10 +158,10 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
-    });
+    // TODO: Implement events on map
+    // google.maps.event.addListener(marker, 'click', function() {
+    //   // your code goes here!
+    // });
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
@@ -233,10 +216,6 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);

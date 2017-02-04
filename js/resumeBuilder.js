@@ -165,7 +165,7 @@ var projects = {
             title: 'Portfolio project' ,
             dates: 'January 2017',
             description: 'This projects showcases my portfolio including projects I have been working on.',
-            images: 'images/197x148.gif'  // TODO: add image url
+            images: 'images/project.png'  // TODO: add image url
         }
     ],
     display: function() {
@@ -188,6 +188,14 @@ var projects = {
         }
     }
 };
+
+// Internationalize name function implementation
+function inName(name) {
+    name = name.trim().split(" ");
+    var firstName = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase();
+    var lastName = name[1].toUpperCase();
+    return firstName + " " + lastName;
+}
 
 // Call display methods on all the
 // objects
