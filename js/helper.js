@@ -159,9 +159,9 @@ function initializeMap() {
     });
 
     // TODO: Implement events on map
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   // your code goes here!
-    // });
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.open(map, marker);
+    });
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
