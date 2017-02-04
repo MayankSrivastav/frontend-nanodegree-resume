@@ -2,6 +2,9 @@
    dynamically. This file interacts with
    helper.js and index.html
 */
+
+var data = '%data%';
+
 // Object schema for the resume
 var bio = {
     name: 'Mayank Srivastav',
@@ -22,32 +25,23 @@ var bio = {
     biopic: 'images/fry.jpg', // TODO: Put the biopic
     display: function() {
         // Append the header information
-        var headerName = HTMLheaderName.replace('%data%', bio.name);
-        var headerRole = HTMLheaderRole.replace('%data%', bio.role);
+        var headerName = HTMLheaderName.replace(data, bio.name);
+        var headerRole = HTMLheaderRole.replace(data, bio.role);
         $('#header').prepend(headerRole);
         $('#header').prepend(headerName);
 
-        // Append the contacts information
-        //var contactGeneric = ? TODO: Need clarification
-        var mobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-        $('#topContacts').append(mobile);
+        // Append the contacts information        
+        var mobile = HTMLmobile.replace(data, bio.contacts.mobile);
+        var email = HTMLemail.replace(data, bio.contacts.email);
+        var github = HTMLgithub.replace(data, bio.contacts.github);
+        var location = HTMLlocation.replace(data, bio.contacts.location);
 
-        var email = HTMLemail.replace('%data%', bio.contacts.email);
-        $('#topContacts').append(email);
+        $('#topContacts, #footerContacts').append(mobile, email, github, location);
 
-        var github = HTMLgithub.replace('%data%', bio.contacts.github);
-        $('#topContacts').append(github);
-
-        var location = HTMLlocation.replace('%data%', bio.contacts.location);
-        $('#topContacts').append(location);
-
-        var footerContact = $('#topContacts').html();
-        $('#footerContacts').append(footerContact);
-
-        var bioPic = HTMLbioPic.replace('%data%', bio.biopic);
+        var bioPic = HTMLbioPic.replace(data, bio.biopic);
         $('#header').append(bioPic);
 
-        var welcomeMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+        var welcomeMessage = HTMLwelcomeMsg.replace(data, bio.welcomeMessage);
         $('#header').append(welcomeMessage);
 
         $('#header').append(HTMLskillsStart);
@@ -55,12 +49,13 @@ var bio = {
         // Iterate over skills array and append
         // the values one by one
         this.skills.forEach(function(currentValue) {
-            var value = HTMLskills.replace('%data%', currentValue);
+            var value = HTMLskills.replace(data, currentValue);
             $('#skills').append(value);
         });
     }
 };
 
+// This is the object for education section
 var education = {
     schools: [{
         name: 'Graphic Era University',
@@ -83,18 +78,18 @@ var education = {
         // Iterate over the schools array &
         // append values one by one
         for (var i = 0; i < this.schools.length; i++) {
-            var schoolName = HTMLschoolName.replace('%data%', this.schools[i].name);
-            var schoolDegree = HTMLschoolDegree.replace('%data%', this.schools[i].degree);
+            var schoolName = HTMLschoolName.replace(data, this.schools[i].name);
+            var schoolDegree = HTMLschoolDegree.replace(data, this.schools[i].degree);
             $('.education-entry').append(schoolName + schoolDegree);
 
-            var schoolLocation = HTMLschoolLocation.replace('%data%', this.schools[i].location);
+            var schoolLocation = HTMLschoolLocation.replace(data, this.schools[i].location);
             $('.education-entry').append(schoolLocation);
 
-            var schoolDates = HTMLschoolDates.replace('%data%', this.schools[i].dates);
+            var schoolDates = HTMLschoolDates.replace(data, this.schools[i].dates);
             $('.education-entry').append(schoolDates);
 
             for (var j = 0; j < this.schools[i].majors.length; j++) {
-                var schoolMajor = HTMLschoolMajor.replace('%data%', this.schools[i].majors[j]);
+                var schoolMajor = HTMLschoolMajor.replace(data, this.schools[i].majors[j]);
                 $('.education-entry').append(schoolMajor);
             }
         }
@@ -106,19 +101,20 @@ var education = {
         // Iterate over the onlineCourses array &
         // append values one by one
         for (var k = 0; k < this.onlineCourses.length; k++) {
-            var onlineTitle = HTMLonlineTitle.replace('%data%', this.onlineCourses[k].title);
-            var onlineSchool = HTMLonlineSchool.replace('%data%', this.onlineCourses[k].school);
+            var onlineTitle = HTMLonlineTitle.replace(data, this.onlineCourses[k].title);
+            var onlineSchool = HTMLonlineSchool.replace(data, this.onlineCourses[k].school);
             $('.education-entry').append(onlineTitle + onlineSchool);
 
-            var onlineDates = HTMLonlineDates.replace('%data%', this.onlineCourses[k].dates);
+            var onlineDates = HTMLonlineDates.replace(data, this.onlineCourses[k].dates);
             $('.education-entry').append(onlineDates);
 
-            var onlineURL = HTMLonlineURL.replace('%data%', this.onlineCourses[k].url);
+            var onlineURL = HTMLonlineURL.replace(data, this.onlineCourses[k].url);
             $('.education-entry').append(onlineURL);
         }
     }
 };
 
+// This is the object for work section
 var work = {
     jobs: [{
         employer: 'Infosys',
@@ -135,28 +131,29 @@ var work = {
         // Iterate over the jobs array &
         // append values one by one
         for (var i = 0; i < this.jobs.length; i++) {
-            var workEmployer = HTMLworkEmployer.replace('%data%', this.jobs[i].employer);
-            var workTitle = HTMLworkTitle.replace('%data%', this.jobs[i].title);
+            var workEmployer = HTMLworkEmployer.replace(data, this.jobs[i].employer);
+            var workTitle = HTMLworkTitle.replace(data, this.jobs[i].title);
             $('.work-entry').append(workEmployer + workTitle);
 
-            var workLocation = HTMLworkLocation.replace('%data%', this.jobs[i].location);
+            var workLocation = HTMLworkLocation.replace(data, this.jobs[i].location);
             $('.work-entry').append(workLocation);
 
-            var workDates = HTMLworkDates.replace('%data%', this.jobs[i].dates);
+            var workDates = HTMLworkDates.replace(data, this.jobs[i].dates);
             $('.work-entry').append(workDates);
 
-            var workDescription = HTMLworkDescription.replace('%data%', this.jobs[i].description);
+            var workDescription = HTMLworkDescription.replace(data, this.jobs[i].description);
             $('.work-entry').append(workDescription);
         }
     }
 };
 
+// This is the object for projects section
 var projects = {
     projects: [{
         title: 'Portfolio project',
         dates: 'January 2017',
         description: 'This projects showcases my portfolio including projects I have been working on.',
-        images: 'images/project.png' // TODO: add image url
+        images: ['images/project.png']
     }],
     display: function() {
         $('#projects').append(HTMLprojectStart);
@@ -164,17 +161,19 @@ var projects = {
         // Iterate over the projects array &
         // append values one by one
         for (var i = 0; i < this.projects.length; i++) {
-            var projectTitle = HTMLprojectTitle.replace('%data%', this.projects[i].title);
+            var projectTitle = HTMLprojectTitle.replace(data, this.projects[i].title);
             $('.project-entry').append(projectTitle);
 
-            var projectDates = HTMLprojectDates.replace('%data%', this.projects[i].dates);
+            var projectDates = HTMLprojectDates.replace(data, this.projects[i].dates);
             $('.project-entry').append(projectDates);
 
-            var projectDescription = HTMLprojectDescription.replace('%data%', this.projects[i].description);
+            var projectDescription = HTMLprojectDescription.replace(data, this.projects[i].description);
             $('.project-entry').append(projectDescription);
 
-            var projectImage = HTMLprojectImage.replace('%data%', this.projects[i].images);
-            $('.project-entry').append(projectImage);
+            for (var j = 0; j < this.projects[i].images.length; j++) {
+                var projectImage = HTMLprojectImage.replace(data, this.projects[i].images[j]);
+                $('.project-entry').append(projectImage);
+            }
         }
     }
 };
